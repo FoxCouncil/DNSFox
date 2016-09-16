@@ -1,0 +1,314 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF8E47A4-0635-466E-A6EE-5CFF538098D9}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DNSFox</RootNamespace>
+    <AssemblyName>DNSFox</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>fox.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>DNSFox.DNSFoxApp</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.90.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Externals\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CheckBoxComboBox\CheckBoxComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBoxComboBox\CheckBoxComboBox.Designer.cs" />
+    <Compile Include="CheckBoxComboBox\GripBounds.cs" />
+    <Compile Include="CheckBoxComboBox\Selection Wrappers\ListSelectionWrapper.cs" />
+    <Compile Include="CheckBoxComboBox\NativeMethods.cs" />
+    <Compile Include="CheckBoxComboBox\Selection Wrappers\ObjectSelectionWrapper.cs" />
+    <Compile Include="CheckBoxComboBox\Popup.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBoxComboBox\Popup.Designer.cs" />
+    <Compile Include="CheckBoxComboBox\PopupComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CheckBoxComboBox\PopupComboBox.Designer.cs" />
+    <Compile Include="ConsoleLogItem.cs" />
+    <Compile Include="DNSFoxStrings.cs" />
+    <Compile Include="DNSFoxEnums.cs" />
+    <Compile Include="DNSFoxEventsArgs.cs" />
+    <Compile Include="Dns\BaseEncoding.cs" />
+    <Compile Include="Dns\DnsClient.cs" />
+    <Compile Include="Dns\DnsClientAsyncState.cs" />
+    <Compile Include="Dns\DnsClientBase.cs" />
+    <Compile Include="Dns\DnsClientEndpointInfo.cs" />
+    <Compile Include="Dns\DnsClientParallelAsyncState.cs" />
+    <Compile Include="Dns\DnsClientParallelState.cs" />
+    <Compile Include="Dns\DnsMessage.cs" />
+    <Compile Include="Dns\DnsMessageBase.cs" />
+    <Compile Include="Dns\DnsMessageEntryBase.cs" />
+    <Compile Include="Dns\DnsQuestion.cs" />
+    <Compile Include="Dns\DnsRecord\AaaaRecord.cs" />
+    <Compile Include="Dns\DnsRecord\AfsdbRecord.cs" />
+    <Compile Include="Dns\DnsRecord\AplRecord.cs" />
+    <Compile Include="Dns\DnsRecord\ARecord.cs" />
+    <Compile Include="Dns\DnsRecord\CertRecord.cs" />
+    <Compile Include="Dns\DnsRecord\CNameRecord.cs" />
+    <Compile Include="Dns\DnsRecord\DhcidRecord.cs" />
+    <Compile Include="Dns\DnsRecord\DNameRecord.cs" />
+    <Compile Include="Dns\DnsRecord\DnsRecordBase.cs" />
+    <Compile Include="Dns\DnsRecord\GPosRecord.cs" />
+    <Compile Include="Dns\DnsRecord\HInfoRecord.cs" />
+    <Compile Include="Dns\DnsRecord\HipRecord.cs" />
+    <Compile Include="Dns\DnsRecord\IAddressRecord.cs" />
+    <Compile Include="Dns\DnsRecord\IpSecKeyRecord.cs" />
+    <Compile Include="Dns\DnsRecord\IsdnRecord.cs" />
+    <Compile Include="Dns\DnsRecord\ITextRecord.cs" />
+    <Compile Include="Dns\DnsRecord\KxRecord.cs" />
+    <Compile Include="Dns\DnsRecord\LocRecord.cs" />
+    <Compile Include="Dns\DnsRecord\MxRecord.cs" />
+    <Compile Include="Dns\DnsRecord\NaptrRecord.cs" />
+    <Compile Include="Dns\DnsRecord\NsapRecord.cs" />
+    <Compile Include="Dns\DnsRecord\NsRecord.cs" />
+    <Compile Include="Dns\DnsRecord\PtrRecord.cs" />
+    <Compile Include="Dns\DnsRecord\PxRecord.cs" />
+    <Compile Include="Dns\DnsRecord\RpRecord.cs" />
+    <Compile Include="Dns\DnsRecord\RtRecord.cs" />
+    <Compile Include="Dns\DnsRecord\SoaRecord.cs" />
+    <Compile Include="Dns\DnsRecord\SpfRecord.cs" />
+    <Compile Include="Dns\DnsRecord\SrvRecord.cs" />
+    <Compile Include="Dns\DnsRecord\SshFpRecord.cs" />
+    <Compile Include="Dns\DnsRecord\TKeyRecord.cs" />
+    <Compile Include="Dns\DnsRecord\TxtRecord.cs" />
+    <Compile Include="Dns\DnsRecord\UnknownRecord.cs" />
+    <Compile Include="Dns\DnsRecord\WksRecord.cs" />
+    <Compile Include="Dns\DnsRecord\X25Record.cs" />
+    <Compile Include="Dns\DnsSec\DiffieHellmanKeyRecord.cs" />
+    <Compile Include="Dns\DnsSec\DlvRecord.cs" />
+    <Compile Include="Dns\DnsSec\DnsKeyRecord.cs" />
+    <Compile Include="Dns\DnsSec\DnsSecAlgorithm.cs" />
+    <Compile Include="Dns\DnsSec\DnsSecDigestType.cs" />
+    <Compile Include="Dns\DnsSec\DsRecord.cs" />
+    <Compile Include="Dns\DnsSec\KeyRecord.cs" />
+    <Compile Include="Dns\DnsSec\KeyRecordBase.cs" />
+    <Compile Include="Dns\DnsSec\NSec3ParamRecord.cs" />
+    <Compile Include="Dns\DnsSec\Nsec3Record.cs" />
+    <Compile Include="Dns\DnsSec\NSecRecord.cs" />
+    <Compile Include="Dns\DnsSec\RrSigRecord.cs" />
+    <Compile Include="Dns\DnsSec\SigRecord.cs" />
+    <Compile Include="Dns\DnsServer.cs" />
+    <Compile Include="Dns\DynamicUpdate\AddRecordUpdate.cs" />
+    <Compile Include="Dns\DynamicUpdate\DeleteAllRecordsUpdate.cs" />
+    <Compile Include="Dns\DynamicUpdate\DeleteRecordUpdate.cs" />
+    <Compile Include="Dns\DynamicUpdate\DnsUpdateMessage.cs" />
+    <Compile Include="Dns\DynamicUpdate\NameIsInUsePrequisite.cs" />
+    <Compile Include="Dns\DynamicUpdate\NameIsNotInUsePrequisite.cs" />
+    <Compile Include="Dns\DynamicUpdate\PrequisiteBase.cs" />
+    <Compile Include="Dns\DynamicUpdate\RecordExistsPrequisite.cs" />
+    <Compile Include="Dns\DynamicUpdate\RecordNotExistsPrequisite.cs" />
+    <Compile Include="Dns\DynamicUpdate\UpdateBase.cs" />
+    <Compile Include="Dns\EDns\EDnsOptionBase.cs" />
+    <Compile Include="Dns\EDns\EDnsOptionType.cs" />
+    <Compile Include="Dns\EDns\LongLivedQueryOption.cs" />
+    <Compile Include="Dns\EDns\NsIdOption.cs" />
+    <Compile Include="Dns\EDns\OptRecord.cs" />
+    <Compile Include="Dns\EDns\OwnerOption.cs" />
+    <Compile Include="Dns\EDns\UnknownOption.cs" />
+    <Compile Include="Dns\EDns\UpdateLeaseOption.cs" />
+    <Compile Include="Dns\EnumHelper.cs" />
+    <Compile Include="Dns\ExceptionEventArgs.cs" />
+    <Compile Include="Dns\InvalidSignedMessageEventArgs.cs" />
+    <Compile Include="Dns\IPAddressExtension.cs" />
+    <Compile Include="Dns\LlmnrClient.cs" />
+    <Compile Include="Dns\LlmnrMessage.cs" />
+    <Compile Include="Dns\MulticastDnsMessage.cs" />
+    <Compile Include="Dns\MulticastDnsOneShotClient.cs" />
+    <Compile Include="Dns\OperationCode.cs" />
+    <Compile Include="Dns\RecordClass.cs" />
+    <Compile Include="Dns\RecordType.cs" />
+    <Compile Include="Dns\ReturnCode.cs" />
+    <Compile Include="Dns\TSig\TSigAlgorithm.cs" />
+    <Compile Include="Dns\TSig\TSigAlgorithmHelper.cs" />
+    <Compile Include="Dns\TSig\TSigRecord.cs" />
+    <Compile Include="Dns\UdpListener.cs" />
+    <Compile Include="DNSFoxMainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DNSFoxMainForm.Designer.cs">
+      <DependentUpon>DNSFoxMainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DNSFoxApp.cs" />
+    <Compile Include="Lang\Strings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StringUtils.cs" />
+    <Compile Include="TimeUtils.cs" />
+    <EmbeddedResource Include="CheckBoxComboBox\PopupComboBox.resx" />
+    <EmbeddedResource Include="DNSFoxMainForm.resx">
+      <DependentUpon>DNSFoxMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Lang\Strings.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\door_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_stop_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_play.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control_play_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_refresh_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flag_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
